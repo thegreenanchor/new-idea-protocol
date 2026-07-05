@@ -126,4 +126,6 @@ MIT. See `LICENSE`.
 
 ## Credit
 
-Created by Jose Suarez / The Green Anchor as part of a Hermes + Obsidian + coding-agent workflow. See `CREDIT.md`.
+Created by Jose Suarez / The Green Anchor as part of a Hermes + Obsidian + coding-agent workflow.
+
+Credit to JavaScript Mastery for the original AI-assisted development prompt/workflow Jose built from, and for the original six-file context methodology that Seven-File Context extends. See https://x.com/jsmasterypro and `CREDIT.md`.

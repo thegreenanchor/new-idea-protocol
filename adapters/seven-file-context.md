@@ -1,5 +1,7 @@
 # Seven-File Context Adapter
 
+Seven-File Context extends JavaScript Mastery's original six-file context methodology by adding `integrations.md` for external services, auth, env var names, endpoints, quotas, webhooks, and failure modes.
+
 Use New Idea Protocol to produce the first durable spec, then create:
 
 ```text

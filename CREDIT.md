@@ -2,7 +2,20 @@
 
 New Idea Protocol was created by Jose Suarez / The Green Anchor as a reusable extraction of a private Hermes and Obsidian idea-capture workflow.
 
-The protocol is influenced by practical AI-coding lessons from requirements engineering, spec-driven development, Wizard-of-Oz prototyping, and context-first agent workflows.
+## JavaScript Mastery
+
+Credit to JavaScript Mastery for the original AI-assisted development prompt/workflow Jose built from, and for the original six-file context methodology that Jose's Seven-File Context extends.
+
+Seven-File Context keeps JavaScript Mastery's six core context files and adds a seventh file, `integrations.md`, for external services, auth methods, env var names, endpoints, quotas, webhooks, and failure modes.
+
+JavaScript Mastery:
+
+- X: https://x.com/jsmasterypro
+- YouTube: https://www.youtube.com/@javascriptmastery
+
+## Jose Suarez / The Green Anchor
+
+Jose adapted the base workflow into New Idea Protocol: a pre-build intake process for clarifying vague ideas, pressure-testing assumptions, shaping MVP boundaries, generating Wizard-of-Oz validation plans, and producing coding-agent handoffs.
 
 Related project:
 
