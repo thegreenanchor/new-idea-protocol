@@ -4,19 +4,23 @@
   <img src="assets/banner.jpg" alt="New Idea Protocol - plan before you build" width="720">
 </p>
 
-<div align="center">
+<p align="center">
+  <a href="https://github.com/thegreenanchor/new-idea-protocol/releases"><img src="https://img.shields.io/github/v/release/thegreenanchor/new-idea-protocol?color=0b7a55" alt="Release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" /></a>
+  <a href="adapters/"><img src="https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Gemini%20%7C%20Hermes-7100FF" alt="Works with" /></a>
+  <a href="https://github.com/thegreenanchor/new-idea-protocol/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
+</p>
 
-[![Release](https://img.shields.io/github/v/release/thegreenanchor/new-idea-protocol?color=0b7a55)](https://github.com/thegreenanchor/new-idea-protocol/releases)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/thegreenanchor/new-idea-protocol)](https://github.com/thegreenanchor/new-idea-protocol/commits)
-[![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Gemini%20%7C%20Hermes-7100FF)](adapters/)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/thegreenanchor/new-idea-protocol/pulls)
+<p align="center"><b>From vague idea to agent-ready spec before the first line of code.</b></p>
 
-**From vague idea to agent-ready spec before the first line of code.**
-
-[Quickstart](#quick-start) | [Protocol](PROTOCOL.md) | [Templates](templates/) | [Example](examples/personal-command-center/) | [Guides](guides/) | [Credits](CREDIT.md)
-
-</div>
+<p align="center">
+  <a href="#quick-start">Quickstart</a> | 
+  <a href="PROTOCOL.md">Protocol</a> | 
+  <a href="templates/">Templates</a> | 
+  <a href="examples/personal-command-center/">Example</a> | 
+  <a href="guides/">Guides</a> | 
+  <a href="CREDIT.md">Credits</a>
+</p>
 
 `/new_idea` is requirements engineering for AI agents. It turns a rough app idea into a clarified MVP spec, assumption map, Wizard-of-Oz validation plan, and coding-agent handoff prompt before any code is written.
 
