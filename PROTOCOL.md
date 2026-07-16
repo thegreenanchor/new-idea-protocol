@@ -22,7 +22,7 @@ Do not scaffold, install dependencies, initialize a project, or write production
 3. Ask targeted blocking questions
 4. Shape MVP and non-goals
 5. Clarify + Pressure Test assumptions/risks
-6. Create optional Wizard-of-Oz validation plan
+6. Create optional visual spec and Wizard-of-Oz validation plan
 7. Produce coding-agent handoff prompt
 8. Stop before coding
 ```
@@ -34,9 +34,9 @@ Capture:
 - Original user wording.
 - Domain or brand.
 - Topic/title.
-- Whether a Wizard-of-Oz prototype is wanted.
+- Which visual artifacts are wanted: visual spec, Wizard-of-Oz prototype, both, or neither. Ask once.
 
-Explain Wizard-of-Oz plainly: a quick manual or semi-manual clickable simulation to test the workflow before asking an agent to build the real system.
+Explain both plainly. The visual spec is a styled one-page HTML overview of the idea for at-a-glance reading. The Wizard-of-Oz prototype is a quick manual or semi-manual clickable simulation to test the workflow before asking an agent to build the real system.
 
 ## 2. Classify idea maturity and type
 
@@ -102,6 +102,7 @@ Challenge the idea before finalizing the spec:
 - What should not be built in v1?
 - What auth, data, privacy, compliance, cost, or security assumptions might be dangerous?
 - What would cause the project to fail after a promising prototype?
+- What is the most likely performance bottleneck if usage grows 10x, and does v1 need to care yet?
 
 ## 6. Apply gates
 
@@ -111,6 +112,8 @@ Record each gate as `Pass`, `Pass with assumption`, `Decision required`, or `Def
 2. MVP scope is small enough.
 3. Handoff prompt is implementation-ready.
 4. Wizard-of-Oz path was considered.
+
+Gate 3 includes the system design sketch: present and right-sized, or explicitly marked `Deferred`.
 
 ## 7. Generate artifacts
 
@@ -125,9 +128,14 @@ ideas/001-my-idea/
   DECISIONS.md
   WIZARD-OF-OZ.md
   HANDOFF.md
+  VISUAL-SPEC.html   (optional, post-gates)
 ```
 
 Use `templates/` as the starting point.
+
+The spec includes a right-sized system design sketch: full sketch (components, data flow, API surface, storage, caching, performance assumption) only when maturity is MVP-ready or Expansion, or the type is customer-facing product or automation/integration. Otherwise one paragraph with the rest marked `Deferred`.
+
+If a visual spec was requested, generate it only after the gates are recorded. Ideas that die in the pressure test die as plain text. The visual spec is a reading aid; on any conflict, the Markdown spec wins.
 
 ## 8. Stop before coding
 
@@ -138,6 +146,7 @@ Delivery should summarize:
 - Main non-goals.
 - Riskiest assumption.
 - Wizard-of-Oz status.
+- Visual spec status.
 - Recommended next action.
 
 Do not start implementation unless the user explicitly asks for a new implementation task.

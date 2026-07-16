@@ -1,6 +1,22 @@
 # New Idea Protocol
 
-From vague idea to agent-ready spec before the first line of code.
+<!-- Hero image: add the file, then uncomment.
+<p align="center"><img src="assets/hero.png" alt="New Idea Protocol - plan before you build" width="720"></p>
+-->
+
+<div align="center">
+
+[![Release](https://img.shields.io/github/v/release/thegreenanchor/new-idea-protocol?color=0b7a55)](https://github.com/thegreenanchor/new-idea-protocol/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/thegreenanchor/new-idea-protocol)](https://github.com/thegreenanchor/new-idea-protocol/commits)
+[![Works with](https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Codex%20%7C%20Gemini%20%7C%20Hermes-7100FF)](adapters/)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/thegreenanchor/new-idea-protocol/pulls)
+
+**From vague idea to agent-ready spec before the first line of code.**
+
+[Quickstart](#quick-start) | [Protocol](PROTOCOL.md) | [Templates](templates/) | [Example](examples/personal-command-center/) | [Guides](guides/) | [Credits](CREDIT.md)
+
+</div>
 
 `/new_idea` is requirements engineering for AI agents. It turns a rough app idea into a clarified MVP spec, assumption map, Wizard-of-Oz validation plan, and coding-agent handoff prompt before any code is written.
 
@@ -19,7 +35,7 @@ vague idea
   -> targeted blocking questions
   -> MVP and non-goals
   -> clarify + pressure test
-  -> optional Wizard-of-Oz validation plan
+  -> optional visual spec + Wizard-of-Oz validation plan
   -> coding-agent handoff
   -> implementation context
 ```
@@ -43,6 +59,7 @@ ideas/001-my-idea/
   DECISIONS.md
   WIZARD-OF-OZ.md
   HANDOFF.md
+  VISUAL-SPEC.html   (optional, post-gates)
 ```
 
 You can also keep those as sections in one Markdown spec if your workflow prefers a single document.
@@ -85,6 +102,17 @@ Optional Wizard-of-Oz prototype: a quick manual or semi-manual version of the ex
 Fake the expensive parts before you build them.
 
 The prototype is not production code. It is a comprehension check: can the workflow be clicked through before anyone builds the real system?
+
+## Visual spec
+
+Optional visual spec: a styled, self-contained one-page HTML overview of the idea - MVP promise, scope vs non-goals, user flow, system design sketch, riskiest assumptions, and gate status. Judge the idea at a glance instead of re-reading Markdown.
+
+Two rules keep it honest:
+
+1. It is generated only after the four gates are recorded. Ideas that die in the pressure test die as plain text.
+2. The Markdown spec stays the source of truth. The visual spec is a reading aid.
+
+Start from `templates/VISUAL-SPEC.html` and restyle it to your own design system.
 
 ## How this differs from Spec Kit
 

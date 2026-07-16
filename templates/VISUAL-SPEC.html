@@ -1,0 +1,236 @@
+<!doctype html>
+<!--
+  VISUAL-SPEC.html - styled one-page overview of an idea spec.
+
+  Rules:
+  1. Generate only AFTER the four gates are recorded. Ideas that die in the
+     pressure test die as plain text.
+  2. Fill every [PLACEHOLDER]. Remove optional blocks that do not apply.
+  3. Save beside the Markdown spec, e.g. ideas/001-my-idea/VISUAL-SPEC.html
+  4. Self-contained, no build system. Restyle to your own design system if
+     you have one; the structure matters more than the skin.
+  5. The Markdown spec remains the source of truth. On conflict, Markdown wins.
+  6. Status chip classes: chip-pass | chip-assume | chip-decide | chip-defer
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[TOPIC] - Visual Spec</title>
+<style>
+:root {
+  --accent: #0b7a55;
+  --warn: #b45309;
+  --risk: #b91c1c;
+  --bg: #fafaf8;
+  --card: #ffffff;
+  --border: #e5e5e0;
+  --text: #1c1c1a;
+  --muted: #6b6b66;
+  --dim: #a3a39e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 15px; line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+h1 { font-size: clamp(30px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
+.eyebrow {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px;
+}
+.muted { color: var(--muted); }
+header { padding: 56px 0 32px; border-bottom: 1px solid var(--border); }
+.meta-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; font-size: 12px; color: var(--dim); }
+.meta-row b { color: var(--muted); font-weight: 600; }
+.promise {
+  font-size: clamp(19px, 2.6vw, 26px); font-weight: 500; line-height: 1.4;
+  max-width: 30ch; border-left: 4px solid var(--accent);
+  padding: 12px 24px; background: var(--card);
+}
+.grid { display: grid; gap: 12px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+.card-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--dim); margin-bottom: 10px;
+}
+.card h3 { font-size: 17px; margin-bottom: 8px; }
+.card p, .card li { font-size: 13px; color: var(--muted); }
+.card ul { list-style: none; }
+.card li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+.card li:last-child { border-bottom: none; }
+.tick li::before { content: '+ '; color: var(--accent); font-weight: 700; }
+.cross li::before { content: '\00D7  '; color: var(--risk); font-weight: 700; }
+.flow { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 12px; overflow-x: auto; }
+.step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; min-width: 140px; }
+.step-n { font-size: 26px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+.step p { font-size: 13px; color: var(--muted); }
+.chip {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor;
+}
+.chip-pass   { color: var(--accent); background: rgba(11,122,85,0.08); }
+.chip-assume { color: var(--warn);   background: rgba(180,83,9,0.08); }
+.chip-decide { color: var(--risk);   background: rgba(185,28,28,0.08); }
+.chip-defer  { color: var(--dim);    background: transparent; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); padding: 12px 16px; border-bottom: 1px solid var(--border); }
+td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+.check { list-style: none; }
+.check li { padding: 10px 0 10px 30px; position: relative; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+.check li::before { content: ''; position: absolute; left: 0; top: 12px; width: 14px; height: 14px; border: 2px solid var(--accent); border-radius: 3px; }
+footer { padding: 40px 0 64px; }
+footer code { font-family: ui-monospace, monospace; font-size: 12px; background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; }
+@media (max-width: 720px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .flow { grid-auto-flow: row; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">New Idea Protocol &middot; Visual Spec</div>
+    <h1>[TOPIC]</h1>
+    <div class="meta-row">
+      <span><b>Domain</b> [DOMAIN]</span>
+      <span><b>Date</b> [YYYY-MM-DD]</span>
+      <span><b>Maturity</b> [Spark | Problem-first | Solution-first | MVP-ready | Expansion]</span>
+      <span><b>Type</b> [IDEA TYPE]</span>
+      <span><b>Lens</b> [Founder | Engineer | Both]</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">MVP Promise</div>
+    <p class="promise">[ONE SENTENCE MVP PROMISE]</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Who &amp; Why</div>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-label">Primary user</div>
+        <h3>[PRIMARY USER]</h3>
+        <p>[PAIN REMOVED]</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Success moment</div>
+        <h3>[SUCCESS MOMENT]</h3>
+        <p>[HOW WE KNOW IT WORKED]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Scope</div>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-label">In scope - v1</div>
+        <ul class="tick">
+          <li>[FEATURE 1]</li>
+          <li>[FEATURE 2]</li>
+          <li>[FEATURE 3]</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-label">Non-goals - not building</div>
+        <ul class="cross">
+          <li>[ANTI-GOAL 1]</li>
+          <li>[ANTI-GOAL 2]</li>
+          <li>[ANTI-GOAL 3]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">User Flow</div>
+    <div class="flow">
+      <div class="step"><div class="step-n">1</div><p>[STEP 1]</p></div>
+      <div class="step"><div class="step-n">2</div><p>[STEP 2]</p></div>
+      <div class="step"><div class="step-n">3</div><p>[STEP 3]</p></div>
+      <div class="step"><div class="step-n">4</div><p>[STEP 4 - SUCCESS]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONAL: full block only for MVP-ready/Expansion maturity or
+     customer-facing/automation types. Otherwise keep one card with a
+     one-paragraph sketch and mark the rest Deferred. -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">System Design Sketch</div>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-label">Components</div><p>[COMPONENTS]</p></div>
+      <div class="card"><div class="card-label">Data flow</div><p>[DATA FLOW]</p></div>
+      <div class="card"><div class="card-label">API surface</div><p>[API SURFACE]</p></div>
+      <div class="card"><div class="card-label">Storage</div><p>[STORAGE AND WHY]</p></div>
+      <div class="card"><div class="card-label">Caching / queueing</div><p>[CACHING OR NOT NEEDED]</p></div>
+      <div class="card"><div class="card-label">Perf assumption</div><p>[EXPECTED LOAD, FIRST BOTTLENECK AT 10X]</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Pressure Test</div>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-label" style="color:var(--risk)">Riskiest user assumption</div><p>[ASSUMPTION AND VALIDATION IDEA]</p></div>
+      <div class="card"><div class="card-label" style="color:var(--risk)">Riskiest technical assumption</div><p>[ASSUMPTION AND VALIDATION IDEA]</p></div>
+      <div class="card"><div class="card-label" style="color:var(--risk)">Riskiest business assumption</div><p>[ASSUMPTION AND VALIDATION IDEA]</p></div>
+      <div class="card"><div class="card-label" style="color:var(--warn)">Fake it first</div><p>[MANUAL OR SEMI-MANUAL SUBSTITUTE]</p></div>
+      <div class="card" style="grid-column: span 2"><div class="card-label" style="color:var(--warn)">What breaks this later</div><p>[POST-PROTOTYPE FAILURE MODES]</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Gates</div>
+    <table>
+      <tr><th>Gate</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>Problem is clear enough</td><td><span class="chip chip-pass">[STATUS]</span></td><td>[NOTES]</td></tr>
+      <tr><td>MVP scope is small enough</td><td><span class="chip chip-assume">[STATUS]</span></td><td>[NOTES]</td></tr>
+      <tr><td>Handoff prompt is implementation-ready (incl. system design sketch)</td><td><span class="chip chip-decide">[STATUS]</span></td><td>[NOTES]</td></tr>
+      <tr><td>Wizard-of-Oz path was considered</td><td><span class="chip chip-defer">[STATUS]</span></td><td>[NOTES]</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Definition of Done</div>
+    <ul class="check">
+      <li>[OBSERVABLE CONDITION 1]</li>
+      <li>[OBSERVABLE CONDITION 2]</li>
+      <li>Performance audit pass completed on hot paths, or explicitly waived for v1</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="eyebrow">Artifacts</div>
+    <p class="muted">Spec <code>ideas/[NNN]-[topic]/SPEC.md</code>
+      &nbsp;&middot;&nbsp; Prototype <code>[PATH OR NONE]</code>
+      &nbsp;&middot;&nbsp; Next action: <strong>[NEXT ACTION]</strong></p>
+    <p class="muted" style="margin-top:16px; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--dim)">New Idea Protocol &middot; visual spec &middot; the Markdown spec is the source of truth</p>
+  </div>
+</footer>
+
+</body>
+</html>

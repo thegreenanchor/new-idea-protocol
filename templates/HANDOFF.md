@@ -22,5 +22,9 @@ project-root/
 
 For integrations.md, map every external service, auth dependency, webhook, provider, and datastore. Include service name, purpose, auth method, env var names with no values, endpoints, rate limits, failure modes, and last-verified status.
 
+For architecture.md, produce a system design covering: components and responsibilities, data flow, API design, database schema, and caching strategy. Mark any item N/A with one line of justification instead of inventing complexity.
+
 Work in small verified units. Stay inside the MVP. Treat non-goals as hard boundaries.
+
+After the MVP passes its acceptance criteria, run a performance audit before declaring done. The audit must include: bottlenecks with file and line references, why each is slow (mechanism, not vibes), optimizations ranked by expected impact, improved code for the top findings, and confirmation that behavior is unchanged. Skip only if the spec explicitly waives performance for v1.
 ```

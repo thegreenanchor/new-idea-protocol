@@ -9,4 +9,4 @@ Generate the artifacts from `templates/`:
 - DECISIONS.md
 - HANDOFF.md
 
-Include MVP scope, non-goals, acceptance criteria, assumptions, integrations, and the four lightweight gates.
+Include MVP scope, non-goals, acceptance criteria, assumptions, integrations, a right-sized system design sketch, and the four lightweight gates.

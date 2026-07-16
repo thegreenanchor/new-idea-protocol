@@ -36,9 +36,21 @@
 | --- | --- | --- | --- | --- |
 | [Service] | [Purpose] | [Auth] | `[VAR]` | [Failure] |
 
+## System design sketch (right-sized)
+
+Full sketch only when maturity is MVP-ready or Expansion, or type is customer-facing product or automation/integration. Otherwise one paragraph, rest marked `Deferred`.
+
+- **Components:** [major parts and responsibilities]
+- **Data flow:** [what moves where, triggered by what]
+- **API surface:** [endpoints or interfaces, if any]
+- **Storage:** [engine and why]
+- **Caching/queueing:** [only if scale demands, else `Not needed for v1`]
+- **Performance assumption:** [expected load, first bottleneck at 10x]
+
 ## Acceptance criteria
 
 - [ ] [Observable condition]
+- [ ] Performance audit pass completed on hot paths, or explicitly waived for v1
 
 ## AI-use disclosure / human review note
 
