@@ -1,8 +1,8 @@
 # New Idea Protocol
 
-<!-- Hero image: add the file, then uncomment.
-<p align="center"><img src="assets/hero.png" alt="New Idea Protocol - plan before you build" width="720"></p>
--->
+<p align="center">
+  <img src="assets/banner.jpg" alt="New Idea Protocol - plan before you build" width="720">
+</p>
 
 <div align="center">
 
