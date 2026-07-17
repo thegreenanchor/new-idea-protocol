@@ -1,7 +1,7 @@
 # New Idea Protocol
 
 <p align="center">
-  <img src="assets/banner.jpg" alt="New Idea Protocol - plan before you build" width="720">
+  <img src="assets/new-idea-protocol-featured.png" alt="New Idea Protocol - plan before you build" width="720">
 </p>
 
 <p align="center">
